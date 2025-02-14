@@ -1,7 +1,7 @@
 import Papa from 'https://cdn.jsdelivr.net/npm/papaparse-min/+esm'
 
 var courses;
-var loadedfn = null;
+let loadedfn = null;
 
 if (!courses) {
 	Papa.parse("/courses.csv", {
@@ -19,7 +19,7 @@ if (!courses) {
 	});
 }
 
-function replaceinfoboxhtml(infoboxhtml, course) {
+let replaceinfoboxhtml = function(infoboxhtml, course) {
 	infoboxhtml = infoboxhtml
 		.replace("{title}", course.Title)
 		.replace("{code}", course.Code)
@@ -38,28 +38,24 @@ function replaceinfoboxhtml(infoboxhtml, course) {
 
 var infoboxhtml;
 
-function OnPlasmicPageFinishedLoading() {
-	let infobox = document.getElementsByClassName("courseinfobox")[0];
+let infobox = document.getElementsByClassName("courseinfobox")[0];
 
-	let listbox = infobox.parentElement;
+let listbox = infobox.parentElement;
 
-	if (!infoboxhtml) infoboxhtml = infobox.outerHTML;
+if (!infoboxhtml) infoboxhtml = infobox.outerHTML;
 
-	loadedfn = function() {
-		let innerhtml = [];
+loadedfn = function() {
+	let innerhtml = [];
 
-		for (let i = courses.length; i--;) {
-			if (courses[i].Featured === "TRUE") {
-				innerhtml.push(replaceinfoboxhtml(infoboxhtml, courses[i]));
-			}
+	for (let i = courses.length; i--;) {
+		if (courses[i].Featured === "TRUE") {
+			innerhtml.push(replaceinfoboxhtml(infoboxhtml, courses[i]));
 		}
-
-		listbox.innerHTML = innerhtml.join("");
-    };
-
-	if (courses) {
-		loadedfn();
 	}
-}
 
-OnPlasmicPageFinishedLoading();
+	listbox.innerHTML = innerhtml.join("");
+};
+
+if (courses) {
+	loadedfn();
+}

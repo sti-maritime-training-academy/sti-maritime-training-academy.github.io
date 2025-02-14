@@ -1,8 +1,8 @@
 import Papa from 'https://cdn.jsdelivr.net/npm/papaparse-min/+esm'
 
 var courses;
-var loadedfn = null;
-var searchfn = null;
+let loadedfn = null;
+let searchfn = null;
 
 if (!courses) {
 	Papa.parse("/courses.csv", {
@@ -39,51 +39,47 @@ function replaceinfoboxhtml(infoboxhtml, course) {
 
 var infoboxhtml;
 
-function OnPlasmicPageFinishedLoading() {
-	let infobox = document.getElementsByClassName("courseinfobox")[0];
+let infobox = document.getElementsByClassName("courseinfobox")[0];
+
+let listbox = infobox.parentElement;
+
+if (!infoboxhtml) infoboxhtml = infobox.outerHTML;
+
+loadedfn = function() {
+	let innerhtml = [];
+
+	for (let i = courses.length; i--;) {
+		innerhtml.push(replaceinfoboxhtml(infoboxhtml, courses[i]));
+	}
+
+	listbox.innerHTML = innerhtml.join("");
 	
-	let listbox = infobox.parentElement;
+	document.getElementById("courseinfolist").style.display = "block";
+};
 
-	if (!infoboxhtml) infoboxhtml = infobox.outerHTML;
+let searchinput = document.getElementById("searchcourseinput");
 
-	loadedfn = function() {
-		let innerhtml = [];
+searchfn = function() {
+	let searchval = searchinput.value.trim().toUpperCase();
 
-		for (let i = courses.length; i--;) {
+	let innerhtml = [];
+
+	for (let i = courses.length; i--;) {
+		if (
+			courses[i].Title.toUpperCase().includes(searchval)
+			|| courses[i].Code.toUpperCase().includes(searchval)
+		) {
 			innerhtml.push(replaceinfoboxhtml(infoboxhtml, courses[i]));
 		}
-
-		listbox.innerHTML = innerhtml.join("");
-		
-		document.getElementById("courseinfolist").style.display = "block";
-    };
-
-	let searchinput = document.getElementById("searchcourseinput");
-
-	searchfn = function() {
-		let searchval = searchinput.value.trim().toUpperCase();
-
-		let innerhtml = [];
-
-		for (let i = courses.length; i--;) {
-			if (
-				courses[i].Title.toUpperCase().includes(searchval)
-				|| courses[i].Code.toUpperCase().includes(searchval)
-			) {
-				innerhtml.push(replaceinfoboxhtml(infoboxhtml, courses[i]));
-			}
-		}
-
-		listbox.innerHTML = innerhtml.join("");
-    };
-
-	if (courses) {
-		loadedfn();
 	}
+
+	listbox.innerHTML = innerhtml.join("");
+};
+
+if (courses) {
+	loadedfn();
 }
 
-OnPlasmicPageFinishedLoading();
-
-function OnClickSearchCourses() {
+window.OnClickSearchCourses = function() {
 	if (searchfn && courses) searchfn();
 }

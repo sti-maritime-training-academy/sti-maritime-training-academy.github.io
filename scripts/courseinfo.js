@@ -2,7 +2,7 @@ import Papa from 'https://cdn.jsdelivr.net/npm/papaparse-min/+esm'
 import MarkdownIt from 'https://cdn.jsdelivr.net/npm/markdown-it/+esm'
 
 var courses;
-var loadedfn = null;
+let loadedfn = null;
 
 if (!courses) {
 	Papa.parse("/courses.csv", {
@@ -20,7 +20,7 @@ if (!courses) {
 	});
 }
 
-function OnPlasmicPageFinishedLoading() {
+(function() {
 	let code = window.location.search.match(/[\?\&]code=([^\&]*)/);
 
 	if (code) {
@@ -106,6 +106,4 @@ function OnPlasmicPageFinishedLoading() {
 	if (courses) {
 		loadedfn();
 	}
-}
-
-OnPlasmicPageFinishedLoading();
+})();
