@@ -51,7 +51,6 @@ if (!courses) {
 		let eleTitle = document.getElementById("coursetitle");
 		let eleType = document.getElementById("coursetype");
 		let eleMode = document.getElementById("coursemode");
-		let elePrice = document.getElementById("courseprice");
 		let eleThumb = document.getElementById("coursethumb");
 		
 		let title = course.Title;
@@ -61,7 +60,7 @@ if (!courses) {
 		document.getElementById("coursebutton").querySelector("a[href=\"http://m.me/stitrainingacademy\"]").href =
 			"http://m.me/stitrainingacademy?text=" + encodeURIComponent(
 				"Hello, I'm interested in the course \"" + title + "\""
-			)
+			);
 
 		eleCode.innerHTML = code;
 
@@ -77,12 +76,6 @@ if (!courses) {
 			eleMode.innerHTML = course.Modality;
 		} else {
 			eleMode.parentElement.remove();
-		}
-
-		if (course.Price) {
-			elePrice.innerHTML = course.Price;
-		} else {
-			elePrice.parentElement.remove();
 		}
 
 		if (course.Thumbnail) {
