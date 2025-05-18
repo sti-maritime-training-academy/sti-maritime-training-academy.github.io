@@ -1,0 +1,13 @@
+# Scope
+
+The course is essentially practical and consists mainly of a series of exercises performed on a ship handling simulator. Some classroom lectures, to provide the necessary theoretical background for the exercises, are included. Particular items dealt with in these lectures are illustrated either by including them as part of exercises or by a separate simulator demonstration. Exercises are controlled by an instructor and initially, allow the trainees to become familiar with the equipment, the controls, and the instrumentation provided by the simulator. The exercises increase in complexity as the course progresses and as trainees become familiar with the maneuvering characteristics of the ship model and its response to the engine and helm in various conditions. The final exercises deal with the planning and execution of as coastal passage from port to port and will make use of the knowledge and skills learned in all of the previous exercises. Equipment failure or malfunction may be introduced during an exercise to afford trainees practice in taking emergency remedial actions.
+
+During exercises, trainees are expected to make use of effective bridge procedures, to comply with the International Regulations for Preventing Collisions at Sea, 1972 (COLREG 1972), to observe the basic principles of keeping a navigational watch, as set out in regulation II/1 of the International Convention on standards of Training, Certification, and Watchkeeping for Seafarers, 1978, as amended, and to be familiar with the maneuvering characteristics of the vessel and perform tests as stated in the IMO Resolution A.751(18), INTERIMSTANDARDS FOR SHIP MANEUVERABILITY. Each exercise will be preceded by a session for briefing and planning and be followed by a group discussion, led by the instructor, to analyze the actions and decisions of the trainees. It is a fact that the way human beings interact, communicates and make decisions in such situations are quite similar. So management errors are also similar. The course was developed as a result of research, which showed that most accidents are caused not by technical errors but by a lack of competence and confidence in ship handling.
+
+# Entry Standards
+
+Entry to this course is intended for all senior deck and OIC deck officers.
+
+# Course Certificate
+
+Upon successful completion of the course, participants will receive a **Certificate of Training Completion**.
